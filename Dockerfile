@@ -2,8 +2,10 @@ FROM tomcat:7-jre8
 
 ENV OPENMAINT=openmaint-1.0-2.3.1
 ENV OPENMAINTZIP=${OPENMAINT}.zip
+ENV HOST='http://198.199.85.11:8000'
+# ENV HOST='http://downloads.sourceforge.net/project/openmaint/1.0'
 RUN set -x \
-  && curl -L http://downloads.sourceforge.net/project/openmaint/1.0/${OPENMAINTZIP} -O \
+  && curl -L ${HOST}/${OPENMAINTZIP} -O \
   && unzip $OPENMAINTZIP
 RUN set -x \
   && mv $OPENMAINT openmaint \
